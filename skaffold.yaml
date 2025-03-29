@@ -1,0 +1,23 @@
+apiVersion: skaffold/v4beta6
+kind: Config
+metadata:
+  name: grpc-ecommerce
+
+build:
+  artifacts:
+    - image: grpc-ecommerce
+      context: .
+      docker:
+        dockerfile: Dockerfile
+  local:
+    push: true
+
+manifests:
+  rawYaml:
+    - k8s/*.yaml
+
+portForward:
+  - resourceType: service
+    resourceName: grpc-app
+    port: 50051
+    localPort: 50051

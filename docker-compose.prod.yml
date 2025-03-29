@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  grpc-ecommerce:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: grpc_ecommerce_app
+    depends_on:
+      - postgres
+    ports:
+      - "50051:50051"
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: grpcuser
+      DB_PASSWORD: grpcpass
+      DB_NAME: grpcdb
+    restart: always
+
+  postgres:
+    image: postgres:16
+    container_name: grpc_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: grpcuser
+      POSTGRES_PASSWORD: grpcpass
+      POSTGRES_DB: grpcdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:

@@ -1,0 +1,21 @@
+# Go
+*.exe
+*.test
+*.out
+vendor/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Proto outputs
+pb/*.pb.go
+pb/*.grpc.pb.go
+
+# DB & docker
+*.db
+postgres_data/
+minikube-linux-amd64
