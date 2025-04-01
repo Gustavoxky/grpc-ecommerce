@@ -195,5 +195,5 @@ Você pode registrar um novo usuário via CLI, ou usar o usuário de exemplo:
 
 ## 🧑‍💻 Autor
 
-Desenvolvido por [Seu Nome]  
+Desenvolvido por Gustavo  
 Contribuições, PRs e sugestões são bem-vindas!
